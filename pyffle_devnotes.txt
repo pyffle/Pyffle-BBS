@@ -1,0 +1,357 @@
+				
+				
+				 #####    #   #  ######  ######  #       ######		v0.01
+				 #    #    # #   #       #       #       #			
+				 #    #     #    #####   #####   #       #####		2011 Simian	
+				 #####      #    #       #       #       #			
+				 #          #    #       #       #       #
+				 #          #    #       #       ######  ###### BBS
+				
+					Copyright Simian 2011
+				
+
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+
+	
+	
+	
+							===================
+							= DEVELOPER NOTES =
+							===================
+
+Introduction
+------------
+	
+	[0: Sid's BBQ]
+	15:34 (?=help!) -> zippy
+
+	Hello? Enema Bondage? I'm calling because I want to be happy, I guess..
+
+
+Welcome to the wonderful world of Pyffle BBS development.
+
+
+
+About plugins 
+-------------
+
+Much of Pyffle is implemented as plugin module classes that are loaded by
+PyffleMain() on startup. A module can be configured to be invoked from 
+the main menu using a keyword or to respond to events dispatched by the 
+system.
+
+See pyffle_example.py for details and some sample code.
+
+
+
+Writing a plugin
+----------------
+
+Your plugin class should be called PyffleModule and inherit from 
+pyffle_module.PyffleModule. (FIXME: this is hacky, will be changed in the 
+future to load the first class to inherit from PyffleModule in each class)
+
+A plugin object consists of the following parts:
+
+	- A pointer to the data instance of this session (your main interface
+	to the rest of the system)
+
+	- A go() instance method that should be used if you wish to be invoked from the
+	Pyffle menu
+	
+	- An eventDispatched() instance method which is used to notify the plugin of 
+	events 
+		
+
+
+
+
+Getting invoked from the menu
+-----------------------------
+
+Implement a go() method that is called whenever the user types the keyword
+associated with your module at the menu prompt.
+
+When this happens, Pyffle will instantiate your plugin, set it up with a data
+session and call this instance's go method with the keyword and a list of 
+arguments passed to the menu.
+
+Please note that Pyffle MIGHT or MIGHT NOT instantiate the plug in every time
+so do not rely on the instance variables for persisting between calls to the 
+go() method.
+
+
+
+
+
+Doing I/O
+---------
+
+Please use the data.util I/O methods over the standard Python STDIO routines - 
+you might not always be writing to STDIO so this is safer.
+
+
+
+
+
+Persistence
+-----------
+
+First rule: Python File I/O within a plugin is a VERY BAD IDEA. 
+You have no idea where you can and can't write, various file locking,
+OS-dependent file naming etc issues arise. 
+
+USE THE PROVIDED METHODS FOR PERSISTENCE. FILE I/O = DEATH.
+
+Second rule: See first rule.
+
+
+If you're thinking "Arrgh, a DBMS? ORMs? I don't want to touch this!" then 
+you'll be glad to know that the PyffleData clas offers simple methods for 
+persisting data for your plugin - we STRONGLY recommend you use these over 
+direct DB access, and you already read Rule 1&2, right?
+
+For plugin data, the DB has two tables, PLUGINSYSTEM and PLUGINUSER - 
+the can be accessed with the pluginWriteUser/System() and pluginReadUser/System()
+methods.
+
+They offer a key/value storage of strings that is either system-wide 
+(PLUGINSYSTEM) or user specific (PLUGINUSER).
+
+Note that no security management* is done whatsoever, so think about this before
+overwriting peoples' stuff. We recommend you prefix your keys with your module
+name as with the events.
+
+If you need to store Python objects, you can always Pickle them and pass them to
+the read/write methods.
+
+* A Pyffle plugin module is responsible for its own SRM checks etc. Exceptions 
+to this are things like message creation where the PyffleData module will check
+user permissions - but only if the plugin associates a user with a create/delete
+call.
+
+
+Plugin Messaging
+----------------
+
+	Pyffle provides methods for plugins to create and respond to messages
+	in a special plugin message board, the contents of which are not 
+	visible to normal users.
+	
+	One interesting thing to note here is the Message Type field available:
+	
+	We recommend you use something descriptive and sane here, for example an
+	invoice for a WIDGET of module FOOBAR would be INVOICE/FOOBAR/WIDGET, a receipt 
+	might be RECEIPT/FOOBAR/WIDGET etc.
+	
+	See Appendix A for an example on how to use this facility to implement
+	inter-plugin communication.
+
+
+
+
+Writing an event handler
+------------------------
+
+Implement a eventDispatched() method and hook into one or more of the system's
+events. 
+
+If producing events in your event handler, e careful to not get into an event
+loop, e.g.:
+
+	Module A produces event X, listens to event Y
+	Module B produces event Y, listens to event X
+	
+	A sends X
+	B receives X, send Y
+	A receives Y, send X
+	B receives X, send Y
+	
+	..etc ad infinitum..
+	
+		
+
+
+Producing events
+----------------
+
+It is recommended that you produce events at significant points in your UI
+flow so that the system and other plug ins may react to them. 
+
+We STRONGLY recommend you prefix your events with your module name to ensure
+you don't accidentally trigger an event handler used by someone else due to the
+event names overlapping.
+
+
+
+
+
+The System Log
+--------------
+
+The system keeps a log of all important events and you're welcome to write to
+the log as well.
+
+The data.logEntry() method looks like this:
+	
+	logEntry(level,code,subject,description):
+
+Where:
+
+	- "level" is one of the following levels of criticality:
+		LOGCRIT = 5
+		LOGWARN = 4
+		LOGNORMAL = 3
+		LOGINFO = 2
+		LOGDEBUG = 1
+	
+	- "code" is a string containing the message code. These are typically
+	a forward-slash delimited "path", starting with a verb, followed 
+	by the actor and other details, e.g. the log code for writing 
+	something to the plugin system table is:
+	
+		CREATE/PLUGIN/SYSTEM
+		
+	You are free to use whatever you want here but we recommend you stick to
+	this format, so let's say your FooMatic plugin just created a widget, you 
+	would log it as:
+	
+		CREATE/FOOMATIC/WIDGET
+		
+	- "subject" is the username performing this action (typically 
+	data.currentUser.username)
+	
+	- "description" is a freeform text field describing what the event is, e.g.
+	
+		Stored |example_previousaccess|=|2011-02-20 14:44:05.726807| 
+	
+
+
+
+
+
+
+
+
+Appendix A - Putting it all together, or The Elbonian Telex Gateway
+===================================================================
+
+The Elbonian Triumvirate does not wish to open up internet access for various, 
+erm, security reasons to their citizenship but do wish that some incoming 
+messaging be available to their more prestigious state companies as well as 
+(naturally) their ostrich farming collectives.
+
+With this in mind we have been contracted to provide a messaging gateway into 
+the pinnacle of Elbonian comms tech, telex. Well, actually it was Northrop
+Grumman and HBGary that got the contract but subcontracted it to us.
+
+We will develop 3 components:
+
+	1. The Telex MTA
+	2. A telex accounting module
+	3. A payment processing module
+	
+
+
+
+The MTA
+=======
+The Telex MTA is launched whenever a user send a message of the format 
+destination$telexaddress. It queries the accounting module for available
+credits, and if sufficient, updates the user's account.
+
+Pseudocode:
+
+	sendmsg(user,msg):
+		if account.credits(user) > requiredCredits:
+			sendMessageByTelex(msg)
+			account.deduct(user,requiredCredits)
+
+
+
+
+
+
+The accounting module and payment modules
+=========================================
+The accounting module keeps track of a user's available credit and
+can produce invoices as well as process payments and issue receipts
+(in interaction with the payment module).
+
+The payment and accounting modules interact via plugin messages.
+
+The accounting module keeps the user's balance in the pluginuser table.
+
+
+User interface:
+
+	1. Buy credits. Pseudocode:
+	
+		buyCredits(user):
+		
+			<create an invoice for the payments module>
+				account.createPluginMessage(type = INVOICE/ELBTELEX/CREDITS,
+											to=Payments, 
+											from=user, 
+											Subject=orderid, 
+											Contents=requestedAmount)
+	
+	
+			<triggers payment module>
+			
+			<Payment display invoice to user, request payment>
+			
+			<if payment made:>
+				payment.createPluginMessage(type = PAYMENT/ELBTELEX,
+											to = Telex,
+											from = user,
+											subject = orderid,
+											Contents = requestedAmount)
+	
+			<return to account module, sees payment, increments balance>
+				pluginuser[username,telexbalance] = pluginuser[username,telexbalance] + amount
+			
+			< sends receipt>
+				account.createPluginMessage(type = RECEIPT/ELBTELEX/CREDITS,
+											to = Payments,
+											from = user,
+											Subject = orderid,
+											Contents = receiptDetails)
+
+
+						
+	
+	2. View credit balance:
+		def showCreditBalance():
+			print "Balance: " + pluginuser[username,telexbalance]
+		
+
+Interface to MTA:
+
+	checkBalance(username, required):
+		return 		pluginuser[username,telexbalance] >= required
+	
+	deduct(username, required):
+		pluginuser[username,telexbalance] = pluginuser[username,telexbalance] - required
+
+
+	
+	
+	
+
+
