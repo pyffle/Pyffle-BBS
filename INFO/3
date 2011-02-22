@@ -1,0 +1,138 @@
+
+----------------------CUT HERE------- < < < Imagine scissors > > >
+
+
+     *  P R O P A G A N D A *      * P R O P A G A N D A *
+
+This is a quick overview of the Waffle BBS, and availability
+information. At the time of writing, the current version is 1.64.
+
+OPERATING SYSTEMS AND AVAILABILITY
+
+  o   DOS  - MS or PC DOS 3.3
+
+	 $30 for executable (shareware distribution)
+        $120 for source code (mailed on 1.2 MB or 720K disk)
+
+	Utilities are included for networking DOS to Unix
+	systems with UUCP.
+
+	Program size is about 180k.
+
+	Download a copy of the shareware version from
+
+	  (Anonymous FTP)	simtel20.army.mil
+                                PD:<MSDOS.WAFFLE>WAFxxx.ZIP
+
+				wuarchive.wustl.edu
+                                /mirrors/msdos/waffle/wafxxx.zip
+
+                                wiretap.spies.com
+                                /waffle/wafxxx.zip
+
+                                halcyon.com
+                                /pub/waffle/wafxxx.zip
+
+          (via X,Y,ZMODEM)      +1 408 245 7726
+				300/1200/2400, 24 hours
+                                /files/waffle/wafxxx.zip
+
+	Contact us (address below) for source license.
+
+  o   Unix - several varieties
+
+	$120 for a single machine, source code form.
+	Binaries are not available.
+
+	A/UX		Apple Macintosh Unix
+        BSD 4.3         Berkeley Unix
+        HP/UX           Hewlett Packard HP/UX
+        NeXT            NeXT OS
+        Sun OS          Sun Microsystems SunOS
+	Ultrix		DEC Ultrix
+	Wicat Sys V	Wicat's System V
+	Xenix		SCO Xenix, 286 and 386 flavors
+	386/ix		Interactive Systems
+
+	Program size is usually under 150k.
+
+	Interfaces with your Unix mailer and B or C news.
+
+	The Unix version will multitask (multiple copies will
+	not interfere with each other).
+
+	Most of the time it is fairly easy (usually takes
+	us an hour) to port to other flavors of Unix.
+
+	Contact us at
+
+	  dell@vox.darkside.com     ..ucdavis!vox!dell
+
+	  Thomas E. Dell
+	  PO Box 4436
+	  Mountain View CA 94040
+
+SOME OF THE FEATURES COMMON TO BOTH VERSIONS
+
+	o  Internal forums - self contained (no Usenet required)
+	o  Full USENET support - DOS and Unix
+	o  Unix version interfaces directly with B or C news software
+	o  Newsgroups may be aliased to an internal name
+	o  Access control, including READ and POST, or by group
+	o  Replies, Follow-Ups (including quoted text), Cancel, etc.
+	o  Will interface with UUCP/Internet mail
+	o  Mail to other Waffle users is kept within the BBS
+	o  internal mailing lists may be maintained
+	o  Interfaces to external protocols such as DSZ or RZ/SZ
+	o  Can create BBS commands to run external programs
+	o  BBS commands may be aliased
+	o  FILES section within BBS, or you can run an external FILES section.
+	o  recognizes terminals in termcap database
+	o  accounts may be disabled, restricted to specific shells, etc.
+	o  sysops can enter operating system
+
+EXTRA FEATURES IN THE DOS VERSION
+
+	o  the DOS version has a built in terminal program with dialer
+	o  DOS version will interface with FOSSIL driver if one is present
+	o  includes UUCICO, UUXQT, UUCP, RNEWS and RMAIL equivalents
+	o  many "hot keys" to disrupt users online (chat, hangup, edit account)
+	o  can provide a newsfeed for other sites
+	o  can serve as a mail hub for several other UUCP sites (passthrough)
+	o  top-of-screen "status bar" to identify user online
+
+SUPPORT AVAILABLE
+
+Support is available by sending mail to root@vox.darkside.com. We will
+make an honest effort to answer whatever questions you have. If you don't
+have net access, we can probably arrange something, or you can call the
+BBS listed here and leave FEEDBACK.
+
+We are always interested in questions, comments, complaints, suggestions,
+ranting and raving, and general feedback.
+
+There is no charge for support, so long as you are nice about it.
+
+ABOUT CONFIGURABILITY
+
+Waffle is extremely configurable. All the menus are configurable;
+it is very easy to add commands, either as externals or as
+files displayed when a "magic word" is typed. The signup questionaire
+may be altered. Certain features (such as COOKIE, FILES, etc) may
+be disabled.
+
+There are LOTS of things we haven't mentioned. In fact there is
+approximately 400k of documentation available, so we have barely even
+scratched the surface.
+
+Both DOS and Unix versions appear identical to the online user. Thus
+even if you are mainly interested in the Unix version, we strongly
+suggest obtaining a copy of the current version of Waffle to inspect
+the documentation (Unix documentation is included with the DOS
+version). This will give you a clearer overview than this silly note.
+
+            ...Tom
+
+--
+dell@vox.darkside.com
+(C) Copyright 1992 Darkside Int'l
