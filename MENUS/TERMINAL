@@ -1,0 +1,14 @@
+
+The two appropriate terminal types for this version of Waffle
+are 'vt100' or 'unknown'. Select
+
+term vt100        You have VT100 emulation
+term unknown      You do not want any terminal defined
+
+Also, other attributes may be defined:
+
+term fast         Print [more] prompt at each page
+term slow         Do not print any [more] prompts
+
+Your current terminal setting is "~%t".
+

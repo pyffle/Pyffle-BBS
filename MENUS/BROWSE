@@ -1,0 +1,16 @@
+
+Waffle ~%V BROWSE functions
+
+<A>gain.....Re-read message      <N>ext.....Read next message
+<B>ack......Back one message     <P>ost.....Enter a new message
+<C>atch.....Mark ALL as read     <Q>uit.....Quit to main menu
+<D>ownload..File transfer        <S>earch...By subject or author
+<F>ollow....Post, with quotes    <U>njoin...Unsubscribe
+<L>ist......Display subjects     <V>erbose..Redisplay with extras
+<M>ail......Send private mail    <W>rite....Save to file
+
+You can also enter a message's number to display it directly.
+Keep hitting the <space> bar to continually read the next message.
+
+Traditional commands can be prefixed with :'s -- type :? for a list.
+

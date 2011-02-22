@@ -1,0 +1,17 @@
+
+A - Add user to system
+C - Copy account
+D - Delete a user
+H - This help screen
+Q - Exit ADMIN
+
+Account templates:
+
+E - Modify user's profile
+F - File system params
+N - News & Mail privileges
+R - Commands on/off
+S - Account security
+T - Terminal and Editor settings
+M - Miscellanous
+* - Edit all of the above

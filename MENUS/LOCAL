@@ -1,0 +1,14 @@
+ ALT-B    Change modem speed                F1   This menu
+ ALT-C    Enter chat. ^D to exit            F2   Local login
+ ALT-E    Change FULL/HALF duplex           F3   Remote user login
+ ALT-H    Hang up phone                     F4   Next call
+ ALT-J    Operating system SHELL            F5   Give user the boot
+ ALT-P    Change transfer protocol          F6   Cycle line setup
+ ALT-Q    Quit program                      F7
+ ALT-T    Toggle SYSOP mode on/off          F8   Control show on/off
+ ALT-V    Online user validation            F9   Backspace ^H/DEL
+ ALT-U    Online user profile editor        10   Terminal mode
+
+ UP       Upload file          (C) Copyright 1992 Darkside Int'l
+ DOWN     Download file        PO Box 4436 Mountain View CA 94040
+

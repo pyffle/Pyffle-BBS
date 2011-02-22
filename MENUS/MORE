@@ -1,0 +1,9 @@
+
+Q or ^C to quit [more]
+
+You can force an output pause by using ^S,
+or stop output entirely by hitting ^C.
+
+To get rid of these silly [more]'s, use TERM SLOW
+
+

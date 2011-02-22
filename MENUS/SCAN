@@ -1,0 +1,21 @@
+
+AGAIN     - Re-read current message
+BACK      - Go back to previous message
+CANCEL    - Remove a message you posted
+CATCH     - Mark ALL messages as read
+DOWNLOAD  - Download current message
+FOLLOW    - Post, including quotes
+FORWARD   - Mail copy of message elsewhere
+LIST      - Display message subjects
+MAIL      - Send private mail to author
+NEXT      - Skip to following board
+POST      - Post public message
+QUIT      - Exit to main menu
+SEARCH    - Search by subject or author
+UNJOIN    - Unsubscribe to newsgroup
+VERBOSE   - Redisplay, showing all headers
+WRITE     - Save message to file
+
+You may type a message's number to
+read it, or press RETURN for next message.
+

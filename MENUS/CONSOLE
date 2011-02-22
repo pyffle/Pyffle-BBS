@@ -1,0 +1,15 @@
+
+Waffle ~%V Console Functions
+
+A - answer the phone (send Hayes AT A)
+C - enter Chrome News/Mail reader
+E - display last 20 events
+F - "finger" a user
+L - display last 20 callers
+M - recent offsite mail sent or received
+N - recent UUCP network connections
+P - manual poll of UUCP neighbors
+Q - exit to system
+S - login locally (also F2 key)
+T - last 20 file transfers
+U - recent Usenet mail & news traffic

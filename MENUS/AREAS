@@ -1,0 +1,11 @@
+...public download areas...
+
+/files             Download Sections
+
+/files/ibm         IBM PC software
+/files/ibm/comm    Communications software
+/files/ibm/games   Silly games
+/files/ibm/ka9q    KA9Q Packet Radio package
+
+/files/unix        Unix software
+/files/unix/gnu    GNU = Gnu's Not Unix

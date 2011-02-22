@@ -1,0 +1,18 @@
+
+[] the FILES menu..
+
+ARC       - Directory of .ARC .ZOO archives
+COPY      - ASCII file upload with edit
+DIR       - Directory of files available
+FIND      - Locate files by title
+HELP      - Help on any of these topics
+LOG       - Log new directory
+MASTER    - Master file directory
+NEW       - Seek new files since date
+PROTOCOL  - Select protocol (XMODEM, etc)
+QUIT      - Exit files section
+RECEIVE   - Upload file, ~%xMODEM protocol
+SEND      - Download file, ~%xMODEM protocol
+VIEW      - Type ascii file, with [more]
+.         - Jump back one directory
+

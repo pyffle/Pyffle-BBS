@@ -1,0 +1,15 @@
+
+ADD     - Add lines to end
+CLEAR   - Clear entire message
+DELETE  - Delete lines (example: d1,4)
+EDIT    - Edit (replace) line
+HEADERS - Change message headers
+INSERT  - Insert lines (example: i5)
+LIST    - List lines with numbers
+PRINT   - List lines without numbers
+QUIT    - Exit without saving
+SAVE    - Exit, saving message
+UPLOAD  - Upload message via ~%xMODEM
+
+In INSERT or ADD mode, use /S to
+save message, or /Q to quit message.

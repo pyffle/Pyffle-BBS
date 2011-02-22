@@ -1,0 +1,15 @@
+
+Message reading commands:               Message creation:
+
+AGAIN    - Reread message               FOLLOW   - Reply, with quotes
+BACK     - Go back one message          FORWARD  - Forward mail to someone
+LIST     - List messages                REPLY    - Send mail to author
+NEXT     - Read next message            SEND     - Send new message
+VERBOSE  - Redisplay all headers
+WRITE    - Save message to a file       Miscellanous commands:
+
+Folder commands:                        CLEAR    - Clear screen
+                                        DELETE   - Delete current message
+GO       - Go to a different folder     EXPAND   - Expand a mailing list
+MOVE     - Move message to a folder     HELP     - Display this menu
+                                        QUIT     - Exit mail
