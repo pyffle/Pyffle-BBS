@@ -1,0 +1,17 @@
+# sample LOCAL boards definition file
+
+# The only things that should appear in the FORUM
+# line are /sig, /dir, or /name. All others should
+# go in DEFAULT or on the individual forum lines.
+
+DEFAULT /sig=localsig /dir=C:\LOCAL
+
+# The defaults are to allow /read=0 and /post=1, and no anonymous posting
+
+DEFAULT /type=LOCAL /keep=60
+
+0	/name="[#0: Syd's Refrigerator]"
+1	/name="[#1: the Public Barbeque]"
+2	/name="[#2: Kremlinology]"
+3	/name="[#3: Police Line - Do not cross]"	/post=2 /anon=1
+4	/name="[#4: I'm All Lost in the Supermarket]"

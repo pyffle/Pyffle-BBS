@@ -1,0 +1,11 @@
+postmaster       system
+sampsa			 system
+admin			 system
+sysop            system
+boo				 system
+news             system
+usenet           system
+uucp             system
+all-sysops       system root
+uuhecadmin		 sampsa@mac.com   m1@sampsa.com   m2@sampsa.com
+echo             | bounce Your message follows

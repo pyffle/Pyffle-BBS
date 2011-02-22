@@ -1,0 +1,28 @@
+;  /waffle/system/dirs -- Waffle FILES section configuration
+
+;  This replaces the old @ACCESS files from v1.64 and below.
+;  The first column contains a shortcut name that will be usable
+;  a future release of Waffle.
+
+;  Many other options are available. See FILES.DOC for details.
+
+1   /dir="c:/files"                  /access=1
+2   /dir="c:/files/waffle"           /access=0 /free
+3   /dir="c:/files/mac"              /access=1
+4   /dir="c:/files/mac/comm"         /access=1
+5   /dir="c:/files/mac/language"     /access=1
+6   /dir="c:/files/text"             /access=3
+7   /dir="c:/files/unix"             /access=1
+8   /dir="c:/files/bbs"              /access=1 /banner=@banner
+9   /dir="c:/files/cud"              /access=1
+10  /dir="c:/files/fiction"          /access=1
+11  /dir="c:/files/fiction/max"      /access=0
+12  /dir="c:/files/fiction/rumpus"   /access=0
+13  /dir="c:/files/fiction/farnon"   /access=0
+14  /dir="c:/files/pc"               /access=2
+15  /dir="c:/files/pc/archive"       /access=2
+16  /dir="c:/files/pc/candy"         /access=2
+17  /dir="c:/files/pc/language"      /access=2
+18  /dir="c:/files/pc/comm"          /access=2
+19  /dir="c:/files/pc/utility"       /access=2
+20  /dir="c:/files/pc/windows"       /access=2

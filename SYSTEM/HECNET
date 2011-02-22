@@ -1,0 +1,50 @@
+# UUHECNET Forums File for Waffle 
+
+# This keeps the last 200 messages
+# posted to each newsgroup, and there is no need for an expire
+
+# You need to change the below line to match your system.
+
+DEFAULT /dir="C:\WAFFLE\NEWS"
+
+# /sig=sig will append /user/xxxx/sig if it exists to all Usenet posts
+
+DEFAULT /name="[Newsgroup %N]" /spy=monitor
+DEFAULT /sig=sig /name="[Newsgroup %N]" /spy=monitor
+DEFAULT /type=USENET /keep=200 /new=NO /post=2
+
+uuhec.test
+
+uuhec.admin			
+uuhec.hardware		
+uuhec.uucp			
+uuhec.dec			
+uuhec.vms			
+uuhec.unix			
+uuhec.hecnet
+uuhec.decnet
+uuhec.waffle		
+uuhec.random		
+uuhec.mac
+uuhec.mac.classic
+uuhec.8bit
+uuhec.8bit.cbm
+uuhec.8bit.cpm
+uuhec.8bit.apple
+
+
+# Things that we are fed but do not carry get shoved into "junk"
+# If things get placed in junk often, something is wrong.
+
+junk                    /post=9 /keep=10
+
+# /spy without arguments sets the "monitor" group as a destination
+# for copies of any posts originating locally..
+
+monitor			/post=0 /spy
+
+# You *MUST* have a "control" group. Right now we don't do a whole
+# lot of control messages processing in the DOS version, though.
+
+control			/post=0
+

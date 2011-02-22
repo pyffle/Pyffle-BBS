@@ -1,0 +1,62 @@
+# sample USENET definition file
+
+# This has only a few Usenet newsgroups, as most DOS sites
+# can't handle a full feed. This keeps the last 200 messages
+# posted to each newsgroup, and there is no need for an expire
+
+# You need to change the below line to match your system.
+
+DEFAULT /dir="C:\WAFFLE\NEWS"
+
+# /sig=sig will append /user/xxxx/sig if it exists to all Usenet posts
+
+DEFAULT /name="[Newsgroup %N]" /spy=monitor
+DEFAULT /sig=sig /name="[Newsgroup %N]" /spy=monitor
+DEFAULT /type=USENET /keep=200 /new=NO /post=1
+
+rec.autos
+rec.autos.tech
+rec.autos.sport
+rec.autos.driving
+
+alt.bbs
+alt.bbs.waffle
+alt.bbs.lists		/post=8
+alt.bbs.lists.d
+alt.security
+comp.lang.c             /expire=5
+comp.lang.c++		/dir="C:\WAFFLE\NEWS\COMP\LANG\CPLUS"
+comp.mail.uucp
+
+rec.arts.movies
+rec.arts.movies.reviews
+rec.arts.comics
+rec.arts.anime
+rec.arts.theatre
+rec.arts.books
+rec.arts.tv
+rec.arts.tv.uk
+rec.music.misc
+rec.music.dylan
+rec.music.beatles
+rec.music.gdead
+rec.music.synth
+rec.music.blues
+rec.music.folk
+rec.music.industrial
+
+# Things that we are fed but do not carry get shoved into "junk"
+# If things get placed in junk often, something is wrong.
+
+junk                    /post=9 /keep=10
+
+# /spy without arguments sets the "monitor" group as a destination
+# for copies of any posts originating locally..
+
+monitor			/post=0 /spy
+
+# You *MUST* have a "control" group. Right now we don't do a whole
+# lot of control messages processing in the DOS version, though.
+
+control			/post=0
+

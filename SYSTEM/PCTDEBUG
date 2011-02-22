@@ -1,0 +1,60 @@
+###    %	Description          Example
+
+###    %A	account              "john"
+###    %B	name of board        "[#1: the Meeting Place]"
+###    %C	print a cookie       <prints a cookie>
+###    %D	date                 "27-Jul-92"
+###    %F	first name           "Francesco"
+###    %G	group(s)             "42"
+###    %L	fake level           "NiNE"
+###    %M	moves                "14"
+###    %N	message base         "1"
+###    %O	time left online     "58"
+###    %P	privilege            "0"
+###    %R	rank or remark       "100 billion bottles"
+###    %S    time spent online    "2"
+###    %T	time                 "6:29p"
+###    %U	user index in pw     "61"
+###    %V    version              "1.65"
+###    %W	who (identity)       "Jose Jimenez"
+###    %Z	print Zippy cookie   <prints a cookie>
+
+###    %a	access level         "6"
+###    %b	modem speed "baud"   "2400", or "LOCAL"
+###    %c	user calls           "56"
+###    %d	device number        "1"
+###    %e	editor		     "vi"
+###    %f    file directory       "/files"
+###    %i	input line           "something someone typed"
+###    %l	last caller          "Dan Quayle"
+###    %m	new local messages   "31"
+###    %n	node name            "unknown.UUCP"
+###    %o	organization         "Kentucky Fried BBS +1 408 245 SPAM"
+###    %p	user posts           "5"
+###    %r	k received (UL'd)    "315"
+###    %s	k sent (DL'd)        "1771"
+###    %t	terminal type        "vt100"
+###    %u	UUCP name            "vegas"
+###    %v	voting number        "91"
+###    %x	transfer protocol    "X"
+
+###    %!	system calls         "51455"
+###    %$	system posts	     "14201"
+###    %#	user's telephone     "408/767-1506"
+###    %@	last call date       "22-Jul-89  5:08"
+###    %?	[chat] attempted     "[chat]"
+
+###    %[	lowest message       "1401"
+###    %=	current message      "1457"
+###    %+	next message         "1458"
+###    %]	highest message      "1460"
+
+###    %|	carriage return      <carriage return>
+###    %^	caret                "^"
+###    %%	percent sign         "%"
+
+###  ^	toggle inverse on/off, ONLY if vt100 mode (DOS) or
+### 	the terminal supports emphasized printing (Unix termcap).
+
+###    %j	is used only if you have the voting booth, and will
+###     	display a message if there is a new topic.
