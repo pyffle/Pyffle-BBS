@@ -1,0 +1,231 @@
+;; 
+;;     This file is part of Pyffle BBS.
+;; 
+;;     Pyffle BBS is free software: you can redistribute it and/or modify
+;;     it under the terms of the GNU General Public License as published by
+;;     the Free Software Foundation, either version 3 of the License, or
+;;     (at your option) any later version.
+;; 
+;;     Pyffle BBS is distributed in the hope that it will be useful,
+;;     but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;     GNU General Public License for more details.
+;; 
+;;     You should have received a copy of the GNU General Public License
+;;     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+;; 
+;; 
+
+; /waffle/system/static -- Main WAFFLE configuration file
+
+; We have only included parameters that you are most likely to
+; change. A full list is available in the STATIC.DOC file.
+
+; After your system is running and stable, you might delete the
+; comments from this file. (It will load much faster).
+
+; - - - - - - - - - - HARDWARE PARAMETERS - - - - - - - - - -
+
+; The COM port to be used by Waffle. Can be 1, 2, 3, or 4.
+
+pyffle.dburl: sqlite:////pyffle/data/pyffledb
+;pyffle.dburl: postgresql://pyffledev:f00btron@localhost/pyffletest
+pyffle.sendmail: /usr/sbin/sendmail
+pyffle.extrmail: /usr/sbin/rmail.taylor
+device: 1
+
+; Default modem speed. The modem init string will be set at this
+; rate, so it should be the fastest speed your modem supports.
+
+locked: 115200
+speed: 115200
+;uu.driver:   native
+uu.locked: 115200
+uu.windows: 5
+fx.gPktSize: 1024
+
+; Initialization string for your modem. This depends a lot on
+; make and model. String below is for a Hayes 2400:
+
+initialize: AT H0 M1 S0=1 V1 E1 X4
+
+; - - - - - - - - - - SYSTEM PARAMETERS - - - - - - - - - -
+
+; Nodename. If you are in a domain, this should be set to your
+; domain; otherwise, you can use UUCP as your domain.
+ 
+node: b4gate.uuhec.net
+
+; Nodename aliases (you can list more than one.) If you have a
+; domain, list your .UUCP address here.
+  
+alias: b4gate.UUCP pyffle b4gate.sampsa.com b4gate.uuhec.net b4gate.pdp-11.net
+ 
+; The name of your system as it appears in the UUCP maps, or
+; as it appears to your UUCP neighbors.
+
+uucpname: b4gate
+
+; Your organization. This should be some short description of your
+; system or company. Try to include a geographic area if possible.
+
+organ: Pyffle BBS HQ -=- London, England -=- http://sampsa.com/b4bbs/
+
+; Timezone. First: the TZ name, second: number of hours west
+; of GMT, third: daylight savings time, if applicable.
+
+timezone: GMT 0 BST
+
+; Number of lines in the general-purpose buffer. Note that a high
+; number will use lots of memory (256 * 80 bytes is about 20K).
+
+buflines: 256
+
+; The command to allow new users onto your system. If you
+; don't want new users, comment this line out.
+
+new: new
+
+; Where to send mail when it's not to your neighbors, or if it's
+; domain addressed. You can also make this a bangpath. See docs.
+
+smarthost: b4gate
+;smarthost: mrgate
+
+; Usenet backbone. This is only used in the case of moderated groups,
+; so you don't have to chnage it. Generally not the same as smarthost.
+ 
+backbone: ucbvax.berkeley.edu
+
+; Forum configuration files. These must be present in your
+; /waffle/system directory with the same names.
+
+; Used to be: 
+forums: local hecnet
+
+; - - - - - - - - - - MESSAGE HEADERS - - - - - - - - - -
+
+; When sending MAIL, headers which are requested from
+; the user. For news, see the 'local' or 'usenet' files.
+
+ask: Subject
+
+; Headers which are not listed when reading message, except
+; when the VERBOSE command is used.
+
+ignore: Path Message-ID References In-Reply-To Sender
+
+; These are the headers which may be altered by the user. If you run a
+; public system be careful about which are listed here.
+
+alter: Subject Keywords Summary Distribution Reply-To Organization
+
+; - - - - - - - - - - PROMPTS - - - - - - - - - -
+
+; People generally change the prompts to give their
+; system a more individual look.
+
+prompt: %|%B%|%T (?=help!) -> %
+
+; Prompts that appear in the SCAN command.
+; The first characters are highlighted in VT100 mode.
+
+scan:          [^RET^] %[-%], ^Q^)uit: %
+scan_end:      ^P^ost, ^L^ist, [%[-%]] ^Q^uit: %
+
+; Prompts that appear in the NEW command.
+; "Qs" stands for Quickscan, a historical remnant.
+
+newscan:       ^Qs>^ %
+newscan_end:    ^Qs>^ Post here? %
+
+error:         Monkey + Typewriter = %i.%|
+boardname:     %B
+
+; The prompt that users see when they dial up.
+; For a more Unixy appearance, set to something like "%|login: %"
+
+login:         %|Login or NEW: %
+
+; - - - - - - - - - - ACCESS RESTRICTIONS - - - - - - - - - -
+
+mail_ok      : 1
+netmail_ok   : 2
+journal_ok   : 3
+poof_ok      : 1
+plan_ok      : 1
+chat_ok      : 0
+ch_level     : 6
+ch_name      : 8
+
+; These are the directory paths used by the FILES section. See FILES.DOC
+; if you want to split the section across multiple drives.
+
+disks        : C:\WAFFLE\FILES
+
+; For BBS only - uncomment these two lines if you want ranks
+; displayed on local messages
+;
+; ch_rank: 5
+; comment: Level %L: %R
+
+; For BBS only - uncomment this line if you want cookies; it is
+; the minimum access required to add cookies.
+;
+cookie_ok  : 1
+
+; - - - - - - - - - - LIMITS BY ACCESS LEVEL - - - - - - - - - -
+
+; Number of calls that users are allowed in
+; one day, listed for access 0 through 9:
+
+calls:     2  2  2  3  3  3  4  4  100  99
+
+; Number of posts that users are allowed in one
+; call, listed for access 0 through 9:
+
+posts:     0  3  3  3  3  4  4  5  100  99
+
+; Number of mail messages that users are allowed
+; to send in one call, listed for access 0 through 9:
+
+mails:     3  5  5  8  8  8  8  8  100  99
+
+; Upload:Download (UL:DL) ratio for callers by access.
+; For example, 20 means 1K uploaded for every 20K downloaded.
+
+ratios:    20  20  20  20  20  20  20  20  20  20
+
+; Minutes permitted each day (even over multiple calls)
+; listed for access 0 through 9:
+
+times:     450  700  700  900  900  900  900  900  900  900
+
+; - - - - - - - - - - DIRECTORIES - - - - - - - - - -
+
+; The 'root' location of your FILES transfer section.
+; Comment out if you don't want a FILES section.
+ 
+files: C:\WAFFLE\FILES
+
+; The UUCP spool directory. Subdirectories will be created as needed.
+; This should be on a disk with enough free space to hold your traffic.
+
+spool: C:\WAFFLE\SPOOL
+
+; Temporary directory. This isn't used much, so there is very
+; limited advantage to putting it on a ram disk.
+
+temporary: C:\WAFFLE\TEMP
+
+; User directories. One directory will be created for each
+; active user on your system (either with mail or personal files.)
+
+user: C:\WAFFLE\USER
+
+; Waffle directory. Beneath this should be ADMIN, BIN, EXTERN,
+; HELP, INFO, MENUS, SYSTEM, TEXT, UUCP and WORDS subdirectories.
+
+waffle: C:\WAFFLE
+;multitask: dos
+disable: exit
