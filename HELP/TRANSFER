@@ -1,0 +1,20 @@
+
+"Help!" with transfers
+
+To download a file,
+
+   (>Send: file.name
+   xx blocks
+
+Now from your terminal program select XMODEM download, and begin.
+
+To upload a file,
+
+   (>Receive: file.name
+   Ready to Receive
+
+From your terminal program select XMODEM upload, and begin.
+
+If you just want to "post" a short message, use the Copy: command.
+
+To view a text file, use View:. That is all.

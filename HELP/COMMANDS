@@ -1,0 +1,82 @@
+
+[] Waffle HELP COMMANDS rev 1.2 14-Nov-88 +1 408/245-SPAM
+   Management is not responsible for lost luggage, minds, virginity..
+
+ADMIN    - Restricted to privileged users. This allows adding users,
+           deleting users, and editing their profiles.
+
+BYE      - Leave system.
+
+CHAT     - Request SYSTEM 0PERATOR's presence.
+
+COOKIE   - What be a cookie? Type COOKIE LIST to see all the
+           cookies. Yes, Virginia, there really IS a cookie monster.
+
+DATE     - Display current date & time, as it is in California.
+
+FEEDBACK - Send a mail message to the SYSTEM 0PERATOR.  Do not expect
+           a reply within this decade.
+
+FILES    - File transfer section. XMODEM, YMODEM, and ZMODEM are
+           now available for file transfers.
+
+FINGER   - Show status of another user. Example: "finger matt". We
+           apologize for any rudeness connoted herein.
+
+HELP     - This command. Provide help for retarded people, and those not
+           skilled in BBS usage. For best results, read while ST0NED.
+
+INFO     - Information. This tends to be old and to have outlived
+           its usefulness. Read while VERY ST0NED.
+
+JOIN     - Configure your NEW scan. This is the proper way
+	   to add Usenet newsgroups.
+
+JOURNAL  - Certain people are allowed to leave a message here. It
+           changes often. Recommended reading.
+
+LIST     - List last few callers. If an argument is supplied, such as
+           LIST 100, the last n callers are listed.
+
+LOGIN    - Often two people in the same dwelling have seperate accounts,
+           in which case LOGIN will allow the second to use the system.
+
+LOGOUT   - Leave system.
+
+MAIL     - Send electronic mail between users. Once in MAIL, either enter
+           the user's name you want to contact, or SEND and then the user's
+           name. If you have mail, the system will tell you.  MAIL now
+           supports aliasing and a carbon-copy feature.
+
+NEW      - Read all new messages (since your last call) on all boards.
+
+OFF      - Another way to LOGOUT.
+
+PLAN     - To augment information displayed with the FINGER command,
+           type PLAN to enter a stupid message when someone FINGERs you.
+
+POST     - Enter a message on BBS. Select a relevant subject for your
+           diatribe. Type your message, ending it with /ex. Then SAVE.
+           See HELP EDITOR for information on how to use the editor.
+
+READ     - Read messages on BBS. To change the message base ("board"),
+           type the number of the board at the main prompt (0-8 here).
+
+STATUS   - Provide information about your account and the system.
+
+TIME     - Display current date & time, as it is (still) in California.
+
+USERS    - List users who have accounts on the system. Also displayed
+           are their last call date and comments.  This also accepts
+           arguments, i.e., typing USERS TOASTER will begin listing with
+           the account "toaster."  ahem.
+
+VERSION  - Print current version of sofware.
+
+VOTE     - A voting topic is selected approximately weekly. To vote, select
+           an existing number or use ADD to create your own.  VOTE RESULTS
+           will show you what last week's results were.
+
+WELCOME  - Shows you the Welcome message that was displayed after login.
+
+
