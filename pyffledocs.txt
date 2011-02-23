@@ -1,14 +1,13 @@
-				
-				
-				 #####    #   #  ######  ######  #       ######		v0.01
-				 #    #    # #   #       #       #       #			
-				 #    #     #    #####   #####   #       #####		2011 Simian	
-				 #####      #    #       #       #       #			
-				 #          #    #       #       #       #
-				 #          #    #       #       ######  ###### BBS
-				
-					Copyright Simian 2011
-
+	
+	
+	 #####    #   #  ######  ######  #       ######			v0.01
+	 #    #    # #   #       #       #       #			
+	 #    #     #    #####   #####   #       #####			© Simian 2011
+	 #####      #    #       #       #       #			
+	 #          #    #       #       #       #
+	 #          #    #       #       ######  ###### BBS
+	
+	
 
 
     This program is free software: you can redistribute it and/or modify
@@ -63,6 +62,7 @@ Fidonet and Mail-11 (yes, really!) are available.
 In summary, here's a feature list w.r.t original Waffle:
 
 What works:
+
 	- The STATIC file is supported, most options are irrelevant now though
 
 	- Various text files work, the following dirs are read upon startup:
@@ -77,7 +77,10 @@ What works:
 		STATUS 		UPTIME 		USERS  		VERSION
 		*WELCOME 	BYE			*LOGOUT		*LOGIN
 
+
+
 What's new:
+
 	- CHAT 					Chat is now multiuser, paging for sysop has not 
 							been implemented. Easy to do as a plugin of course.
 							
@@ -106,6 +109,7 @@ What doesn't work, but can be implemented if there's a demand:
 	
 What doesn't work, and probably never will (feel free to implement a plugin
 for these however):
+
 	- VOTE
 
 	- The original ADMIN 	(USERADMIN replaces this)
@@ -421,6 +425,79 @@ for these however):
 	in, and locally posted news will go out - we are unable to feed news from 
 	one third party site to another, however.
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Appendix A  - The Pyffle Security Model
+=======================================
+
+
+The Pyffle security model is based on two things, the traditional BBS security
+level as well as access control lists.
+
+
+Security levels
+---------------
+
+The security level is checked for access to various things, mainly boards. 
+If the user's security level equals or is greater than the required security
+level, he is granted access.
+
+A board has three security levels attached to it:
+
+	- Read
+	- Write
+	- Operator 	- Allows the deleting and editing of existing messages
+	
+
+
+ACLs
+----
+
+By default, the sysop does not need to worry about ACLs and their use is largely
+optional, but there are two special cases that you need to be aware of, however.
+
+First of all, if you grant SYSOP to any user, security checks will be disabled
+for this user - very dangerous.
+
+Secondly, if you deny LOGIN to a user, you disable the account from logging on.
+The account still behaves normally wrt to emails etc, the user just cannot access
+it. 
+
+Using ACLs further: Pyffle's security reference monitor works according to the
+following scheme:
+
+	1. Check the user's security level against the object, if user's >= object's,
+	access is granted, move to step 2.
+
+	2. If the user has been GRANTED an ACL entry for the object, access is 
+	granted (even if step 1 failed), move to step 3.
+	
+	3. If the user has been DENIED an ACL entry for the object, access is 
+	granted (even if step 1 or 2 passed)
+	
+So in summary,
+
+	DENY > GRANT > Minimum Level.
+	
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 Appendix Z - First ever post on Pyffle HQ
