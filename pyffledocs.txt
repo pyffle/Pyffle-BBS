@@ -1,13 +1,13 @@
-	
-	
-	 #####    #   #  ######  ######  #       ######			v0.01
-	 #    #    # #   #       #       #       #			
-	 #    #     #    #####   #####   #       #####			© Simian 2011
-	 #####      #    #       #       #       #			
-	 #          #    #       #       #       #
-	 #          #    #       #       ######  ###### BBS
-	
-	
+  
+  
+   #####    #   #  ######  ######  #       ######      v0.01
+   #    #    # #   #       #       #       #      
+   #    #     #    #####   #####   #       #####      © Simian 2011
+   #####      #    #       #       #       #      
+   #          #    #       #       #       #
+   #          #    #       #       ######  ###### BBS
+  
+  
 
 
     This program is free software: you can redistribute it and/or modify
@@ -25,11 +25,11 @@
 
 
 
-	
-						  ====================
-						  =	README / INSTALL =
-						  ====================
-	
+  
+              ======================
+              =  README / INSTALL  =
+              ======================
+  
 
 
 
@@ -63,103 +63,103 @@ In summary, here's a feature list w.r.t original Waffle:
 
 What works:
 
-	- The STATIC file is supported, most options are irrelevant now though
+  - The STATIC file is supported, most options are irrelevant now though
 
-	- Various text files work, the following dirs are read upon startup:
+  - Various text files work, the following dirs are read upon startup:
 
-			WORDS, TEXT, INFO, MENUS, HELP, SYSTEM
+      WORDS, TEXT, INFO, MENUS, HELP, SYSTEM
 
-	- The following UI features:
-		     
-		COOKIE  	DATE		FEEDBACK	FINGER  	
-		LIST    	MAIL    	NEW     	PLAN    
-		POST    	READ    	SCAN    	SELECT 
-		STATUS 		UPTIME 		USERS  		VERSION
-		*WELCOME 	BYE			*LOGOUT		*LOGIN
+  - The following UI features:
+         
+    COOKIE    DATE    FEEDBACK  FINGER    
+    LIST      MAIL      NEW       PLAN    
+    POST      READ      SCAN      SELECT 
+    STATUS     UPTIME     USERS      VERSION
+    *WELCOME   BYE      *LOGOUT    *LOGIN
 
 
 
 What's new:
 
-	- CHAT 					Chat is now multiuser, paging for sysop has not 
-							been implemented. Easy to do as a plugin of course.
-							
-	- ACLs					The security system has been extended to support 
-							ACLs.							 
-							These are entirely optional, and the system works
-							perfectly with just access levels.
+  - CHAT           Chat is now multiuser, paging for sysop has not 
+              been implemented. Easy to do as a plugin of course.
+              
+  - ACLs          The security system has been extended to support 
+              ACLs.               
+              These are entirely optional, and the system works
+              perfectly with just access levels.
 
-	- MODULES 				Shows which modules have been loaded into the system
+  - MODULES         Shows which modules have been loaded into the system
 
-	- USEREDIT/ACLEDIT		New admin tools
+  - USEREDIT/ACLEDIT    New admin tools
 
-	- RESET 				Resets the user's NEW SCAN date
+  - RESET         Resets the user's NEW SCAN date
 
-	- CREATE / DROP			Management of message boards 
+  - CREATE / DROP      Management of message boards 
 
-		
+    
 What doesn't work, but can be implemented if there's a demand:
 
-	- Importation of existing user files
+  - Importation of existing user files
 
-	- Importation of existing message bases
+  - Importation of existing message bases
 
-	- Mail folders
-	
-	
+  - Mail folders
+  
+  
 What doesn't work, and probably never will (feel free to implement a plugin
 for these however):
 
-	- VOTE
+  - VOTE
 
-	- The original ADMIN 	(USERADMIN replaces this)
+  - The original ADMIN   (USERADMIN replaces this)
 
-	- FILES section
+  - FILES section
 
-	- Download / upload limits (no files, no limits)
-	
-	- Idle timeouts, user time limits etc, other "BBSy" features
-	
+  - Download / upload limits (no files, no limits)
+  
+  - Idle timeouts, user time limits etc, other "BBSy" features
+  
 
 
 
 1. A brief digression into the topic of Pyffle's database backend
 =================================================================
 
-	SUMMA SUMMARUM: Run Pyffle with SQLite as a backend unless you know
-	what you're doing.
-	
-	
-	Full discussion:
-	
-	Pyffle uses an object relational mapper called SQLAlchemy for its
-	storage needs. The long and short of this is that it needs some kind
-	of database to store stuff in.
-	
-	But don't panic: SQLAlchemy supports SQLite out of the box, and so does
-	Pyffle. You can point Pyffle at a data file to use, and that's the last
-	you need to think about it.
-	
-	However, there are some minor performance issues with using SQLite, as 
-	it can only handle one process writing to the database at a time; this
-	is normally not an issue on even largeish systems.
-	
-	Should you want to use a real RDBMS as the backend, we need to tell
-	you right now that MySQL won't work - why, you ask? It doesn't support
-	a certain useful feature (VARCHARS of undetermined length, specifically)
-	essential for the operation of Pyffle.
-	
-	We recommend PostgresSQL as the backend database, and have provided some
-	sample SQL that sets up the necessary tables, relationships and sequences
-	for keys etc that are needed to operate Pyffle.	
-	
-	The K.I.S.S process for setting up Pyffle on PostgresSQL is as follows:
-	
-		- Create a new database user called pyffle
-		- Create a new database called pyffle
-		- Edit the static file (see relevant section in this doc) 
-		  to point to the new pyffle database
-		- Proceed with the install
+  SUMMA SUMMARUM: Run Pyffle with SQLite as a backend unless you know
+  what you're doing.
+  
+  
+  Full discussion:
+  
+  Pyffle uses an object relational mapper called SQLAlchemy for its
+  storage needs. The long and short of this is that it needs some kind
+  of database to store stuff in.
+  
+  But don't panic: SQLAlchemy supports SQLite out of the box, and so does
+  Pyffle. You can point Pyffle at a data file to use, and that's the last
+  you need to think about it.
+  
+  However, there are some minor performance issues with using SQLite, as 
+  it can only handle one process writing to the database at a time; this
+  is normally not an issue on even largeish systems.
+  
+  Should you want to use a real RDBMS as the backend, we need to tell
+  you right now that MySQL won't work - why, you ask? It doesn't support
+  a certain useful feature (VARCHARS of undetermined length, specifically)
+  essential for the operation of Pyffle.
+  
+  We recommend PostgresSQL as the backend database, and have provided some
+  sample SQL that sets up the necessary tables, relationships and sequences
+  for keys etc that are needed to operate Pyffle.  
+  
+  The K.I.S.S process for setting up Pyffle on PostgresSQL is as follows:
+  
+    - Create a new database user called pyffle
+    - Create a new database called pyffle
+    - Edit the static file (see relevant section in this doc) 
+      to point to the new pyffle database
+    - Proceed with the install
 
 
 
@@ -167,80 +167,80 @@ for these however):
 2. Installation Requirements
 ===========================
 
-	- Reasonably recent Python, developed on Python 2.6.1
-	- The following Python modules:
-		- SQLAlchemy (see section 5)
-		- psutil (psutil-0.2.0.tar.gz included, installable from http://code.google.com/p/psutil/)
-	- Optionally PostgresSQL
-		(VERY optionally some other database that supports non-predefined-size 
-		VARCHARS, e.g. ORACLE. This WILL require some SQL hacking to get the 
-		tables set up as well as drivers for SQLAlchemy. No code changes should 
-		be necessary, however.)
-		
-	You'll need root access to the box you're setting this up on, or at least
-	someone to create a pyffle account for you.
-		 
+  - Reasonably recent Python, developed on Python 2.6.1
+  - The following Python modules:
+    - SQLAlchemy (see section 5)
+    - psutil (psutil-0.2.0.tar.gz included, installable from http://code.google.com/p/psutil/)
+  - Optionally PostgresSQL
+    (VERY optionally some other database that supports non-predefined-size 
+    VARCHARS, e.g. ORACLE. This WILL require some SQL hacking to get the 
+    tables set up as well as drivers for SQLAlchemy. No code changes should 
+    be necessary, however.)
+    
+  You'll need root access to the box you're setting this up on, or at least
+  someone to create a pyffle account for you.
+     
 
 
 
-		  
+      
 
 3. Installation Overview
 ========================
 
-	1. Set up your database, if any
-	2. Create a pyffle OS user that runs pyffle on login
-	3. Install SQLAlchemy and psutil
-	4. As the pyffle user, install the tarball somewhere
-	5. Edit the static file to at least point to your chosen data store
-	6. Run pyffle_setup.py to configure the system and initialise the data store
-	
-	As detailed in Step 2, pyffle runs as a shell for a single user and 
-	performs its own authentication / registration of users. 
-	
-	No daemons etc need to be installed, and pyffle will automatically be
-	available to any user able to log in to your system, no matter what the
-	protocol / access method is.
-	
+  1. Set up your database, if any
+  2. Create a pyffle OS user that runs pyffle on login
+  3. Install SQLAlchemy and psutil
+  4. As the pyffle user, install the tarball somewhere
+  5. Edit the static file to at least point to your chosen data store
+  6. Run pyffle_setup.py to configure the system and initialise the data store
+  
+  As detailed in Step 2, pyffle runs as a shell for a single user and 
+  performs its own authentication / registration of users. 
+  
+  No daemons etc need to be installed, and pyffle will automatically be
+  available to any user able to log in to your system, no matter what the
+  protocol / access method is.
+  
 
 
 4. Create a user for pyffle
 ===========================
 
-	Follow your system's documentation on how to set up a new user account.
-	
-	On Linux boxes, "man useradd" should get you started. If you can't figure
-	out how to add a user - you probably should stop right now :)
-	
-	This user will be used by remote users to run pyffle, typically through
-	a bit of code like this in .profile:
-		
-		cd /pyffle						# change to the pyffle directory
-										# that contains the 'static' file
-										
-		python pyffle_main.py			# launch pyffle
-		exit							# logout immediately afterwards
-		
-	
-	
-	
-	
+  Follow your system's documentation on how to set up a new user account.
+  
+  On Linux boxes, "man useradd" should get you started. If you can't figure
+  out how to add a user - you probably should stop right now :)
+  
+  This user will be used by remote users to run pyffle, typically through
+  a bit of code like this in .profile:
+    
+    cd /pyffle            # change to the pyffle directory
+                    # that contains the 'static' file
+                    
+    python pyffle_main.py      # launch pyffle
+    exit              # logout immediately afterwards
+    
+  
+  
+  
+  
 5. Install SQLAlchemy and psutil
 ================================
 
-	NOTE: If you have these installed already, you need do nothing.
+  NOTE: If you have these installed already, you need do nothing.
 
 
-	SQLAlchemy
-	----------
-	
-	If you have a reasonable Python setup*, this should be doable 
-	via easy_install or pip, viz:
-	
-	 easy_install SQLAlchemy
-	 
-	or 
-	
+  SQLAlchemy
+  ----------
+  
+  If you have a reasonable Python setup*, this should be doable 
+  via easy_install or pip, viz:
+  
+   easy_install SQLAlchemy
+   
+  or 
+  
      pip install SQLAlchemy
      
     If this doesn't work, look to http://www.sqlalchemy.org/docs/intro.html
@@ -255,8 +255,8 @@ for these however):
     
     Untar the supplied psutil tar ball somewhere and (as root) run:
     
-    	python setup.py install
-    	
+      python setup.py install
+      
     That is all.
 
 
@@ -265,67 +265,67 @@ for these however):
 6. Install pyffle itself
 ========================
 
-	Untar the tarball somewhere, on our dedicated VM we just put
-	the installation in /pyffle, e.g.:
-		
-		cd /
-		untar xvfz <path to tarball>
-	
-	If you did this as another user than the pyffle user created above,
-	make sure you chown the whole installation to your pyffle user, e.g.:
-	
-		chown -R pyffleuser /pyffle
-		
-	That's it, more or less :)
-	
-	
-	
-	
-	
+  Untar the tarball somewhere, on our dedicated VM we just put
+  the installation in /pyffle, e.g.:
+    
+    cd /
+    untar xvfz <path to tarball>
+  
+  If you did this as another user than the pyffle user created above,
+  make sure you chown the whole installation to your pyffle user, e.g.:
+  
+    chown -R pyffleuser /pyffle
+    
+  That's it, more or less :)
+  
+  
+  
+  
+  
 7. Edit your static file
 ========================
 
-	This is CRUCIAL. Once you've decided on what database to use, insert the 
-	relevant DB URL into the static file's pyffle.dburl entry. 
-	
-	I would also change things like node and UUCP names as needed. 
-	
-	The static file is quite well commented - a lot of the options are only
-	in there for historical value, they have been commented as such.
-	
-	The default SQLite URL will work too.
-	
-	
-	
-	
-	
+  This is CRUCIAL. Once you've decided on what database to use, insert the 
+  relevant DB URL into the static file's pyffle.dburl entry. 
+  
+  I would also change things like node and UUCP names as needed. 
+  
+  The static file is quite well commented - a lot of the options are only
+  in there for historical value, they have been commented as such.
+  
+  The default SQLite URL will work too.
+  
+  
+  
+  
+  
 8. Run the setup tool
 =====================
-	
-	You should su to your pyffle user (as it's .profile is set to launch 
-	pyffle, so logging on as pyffle will fail). 
-	
-	Go to the directory that you installed pyffle in, and run:
-	
-		python pyffle-setup.py
-		
-	If everything is configured properly, you'll see a bunch of SQL fly by -
-	this is normal. Once the script completes, you can log in!
-	
-	
-	
-	
+  
+  You should su to your pyffle user (as it's .profile is set to launch 
+  pyffle, so logging on as pyffle will fail). 
+  
+  Go to the directory that you installed pyffle in, and run:
+  
+    python pyffle-setup.py
+    
+  If everything is configured properly, you'll see a bunch of SQL fly by -
+  this is normal. Once the script completes, you can log in!
+  
+  
+  
+  
 9. First logon
 ==============
 
-	Whilst either logged on as your pyffle user run:
-	
-		python pyffle-main.py
-		
-	If you have configured the user to launch pyffle on login, you can also 
-	login to the pyffle account and have the software launch that way.
-	
-	Once at the login prompt log on as system, password "password"
+  Whilst either logged on as your pyffle user run:
+  
+    python pyffle-main.py
+    
+  If you have configured the user to launch pyffle on login, you can also 
+  login to the pyffle account and have the software launch that way.
+  
+  Once at the login prompt log on as system, password "password"
 
 
 
@@ -333,108 +333,108 @@ for these however):
 10. Changing the admin password
 ===============================
 
-	The very first thing you should do is use the STATUS command to
-	change your system password. Once this is done, you have a running
-	Pyffle system. Enjoy!
-	
-	You can stop here and you will have a perfectly function, if self-
-	contained BBS setup. However, most people probably want to hook
-	their setup up to UUCP, which is described in the next section.
-	
-	
-	
+  The very first thing you should do is use the STATUS command to
+  change your system password. Once this is done, you have a running
+  Pyffle system. Enjoy!
+  
+  You can stop here and you will have a perfectly function, if self-
+  contained BBS setup. However, most people probably want to hook
+  their setup up to UUCP, which is described in the next section.
+  
+  
+  
 11. Integrating with UUCP mail on your system
 =============================================
-	
-	Pyffle provides several MTA plugins out of the box, the simplest 
-	to set up is probably the sendmail/rmail combo.
-	
-	Pre-requisites: A working Taylor UUCP setup. We've tested this 
-	with Taylor 1.07 and Ubuntu 10.04 Server with default Postfix.
-	
-	NOTE:
-		IF YOU DON'T HAVE UUCP WORKING THERE IS NO POINT CONTINUING!
-	
-	Please note that this method is NOT suitable for sites that 
-	operate other mail users than Pyffle. (Well at least not through
-	UUCP). You can operate two or more sites on the same machine,
-	Pyffle's rmail by default only looks at mails destined for its
-	aliases but setting this up is beyond the scope of this document.
-	
-	For outgoing mail, it's as simple as pointing the static option
-	pyffle.sendmail at your sendmail binary, on Ubuntu this is:
-		
-		/usr/sbin/sendmail
-		
-	Now the hacky part*: We're going to replace the system's rmail
-	command with out own (located in /usr/sbin/rmail on Ubuntu, YMMV).
-	
-	First, make a backup of your rmail command, and then symlink the
-	<pyffledir>/pyffle-rmail to its location, this is what we did on
-	our Ubuntu 10 Server with Taylor UUCP:
-	
-		# mv /usr/sbin/rmail /usr/sbin/rmail.taylor
-		# ln -s /pyffle/pyffle_rmail.py /usr/sbin/rmail
-	
-	That's it! If everything is as it should be, outgoing mail 
-	will be passed to sendmail for delivery and whenever incoming
-	mail arrives via rmail, Pyffle will attempt to import the 
-	messages - if the message is destined for another host, 
-	Pyffle's rmail passes it to the external rmail for onwards
-	processing.
-	
-	* There IS another way around this: if you can get your incoming
-	mailer to pipe any messages destined for Pyffle to pyffle-rmail.py 
-	you will achieve the same effect - replacing the rmail just automates 
-	this.
-	
-	You will also need to do this if you receive mail by other means than
-	rmail. Again, this is beyond the scope of this guide.
-	
+  
+  Pyffle provides several MTA plugins out of the box, the simplest 
+  to set up is probably the sendmail/rmail combo.
+  
+  Pre-requisites: A working Taylor UUCP setup. We've tested this 
+  with Taylor 1.07 and Ubuntu 10.04 Server with default Postfix.
+  
+  NOTE:
+    IF YOU DON'T HAVE UUCP WORKING THERE IS NO POINT CONTINUING!
+  
+  Please note that this method is NOT suitable for sites that 
+  operate other mail users than Pyffle. (Well at least not through
+  UUCP). You can operate two or more sites on the same machine,
+  Pyffle's rmail by default only looks at mails destined for its
+  aliases but setting this up is beyond the scope of this document.
+  
+  For outgoing mail, it's as simple as pointing the static option
+  pyffle.sendmail at your sendmail binary, on Ubuntu this is:
+    
+    /usr/sbin/sendmail
+    
+  Now the hacky part*: We're going to replace the system's rmail
+  command with out own (located in /usr/sbin/rmail on Ubuntu, YMMV).
+  
+  First, make a backup of your rmail command, and then symlink the
+  <pyffledir>/pyffle-rmail to its location, this is what we did on
+  our Ubuntu 10 Server with Taylor UUCP:
+  
+    # mv /usr/sbin/rmail /usr/sbin/rmail.taylor
+    # ln -s /pyffle/pyffle_rmail.py /usr/sbin/rmail
+  
+  That's it! If everything is as it should be, outgoing mail 
+  will be passed to sendmail for delivery and whenever incoming
+  mail arrives via rmail, Pyffle will attempt to import the 
+  messages - if the message is destined for another host, 
+  Pyffle's rmail passes it to the external rmail for onwards
+  processing.
+  
+  * There IS another way around this: if you can get your incoming
+  mailer to pipe any messages destined for Pyffle to pyffle-rmail.py 
+  you will achieve the same effect - replacing the rmail just automates 
+  this.
+  
+  You will also need to do this if you receive mail by other means than
+  rmail. Again, this is beyond the scope of this guide.
+  
 
 
 
 11. Integrating with UUCP news on your system
 =============================================
 
-	Similarly to mail, Pyffle takes over the inbound news handling of your
-	site. However, it is not possible to pass on news to an existing rnews -
-	all news will be destined for Pyffle.
-	
-	First of all, replace your rnews binary with a symlink to Pyffle's 
-	rnews, viz:
-	
-		# mv /usr/bin/rnews /usr/bin/rnews.old
-		# ln -s /pyffle/pyffle_rnews.py /usr/bin/rnews
-		
-	No pre-existing rnews? Just put the symlink in place and we're good to 
-	go.
-	
-	Outbound news is handled by the pyffle_sendnews.py program. Make a 
-	cronjob or similar that calls this whenever you want to send news out.
-	
-	sendnews requires some editing, specifically you need to tell it 
-	which hosts to "feed" news from your system, and which areas to look
-	at for posts. See the comments in the file for details.
-	
-	Finally, you must create boards with external names matching the newsgroups
-	you want to handle. The internal name can be whatever you want it to be, but
-	we recommend just using the newsgroup name for clarity.
-		
-	PLEASE NOTE: Pyffle works strictly in a "leaf node" capacity - news will go
-	in, and locally posted news will go out - we are unable to feed news from 
-	one third party site to another, however.
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+  Similarly to mail, Pyffle takes over the inbound news handling of your
+  site. However, it is not possible to pass on news to an existing rnews -
+  all news will be destined for Pyffle.
+  
+  First of all, replace your rnews binary with a symlink to Pyffle's 
+  rnews, viz:
+  
+    # mv /usr/bin/rnews /usr/bin/rnews.old
+    # ln -s /pyffle/pyffle_rnews.py /usr/bin/rnews
+    
+  No pre-existing rnews? Just put the symlink in place and we're good to 
+  go.
+  
+  Outbound news is handled by the pyffle_sendnews.py program. Make a 
+  cronjob or similar that calls this whenever you want to send news out.
+  
+  sendnews requires some editing, specifically you need to tell it 
+  which hosts to "feed" news from your system, and which areas to look
+  at for posts. See the comments in the file for details.
+  
+  Finally, you must create boards with external names matching the newsgroups
+  you want to handle. The internal name can be whatever you want it to be, but
+  we recommend just using the newsgroup name for clarity.
+    
+  PLEASE NOTE: Pyffle works strictly in a "leaf node" capacity - news will go
+  in, and locally posted news will go out - we are unable to feed news from 
+  one third party site to another, however.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 Appendix A  - The Pyffle Security Model
 =======================================
 
@@ -452,10 +452,10 @@ level, he is granted access.
 
 A board has three security levels attached to it:
 
-	- Read
-	- Write
-	- Operator 	- Allows the deleting and editing of existing messages
-	
+  - Read
+  - Write
+  - Operator   - Allows the deleting and editing of existing messages
+  
 
 
 ACLs
@@ -474,19 +474,19 @@ it.
 Using ACLs further: Pyffle's security reference monitor works according to the
 following scheme:
 
-	1. Check the user's security level against the object, if user's >= object's,
-	access is granted, move to step 2.
+  1. Check the user's security level against the object, if user's >= object's,
+  access is granted, move to step 2.
 
-	2. If the user has been GRANTED an ACL entry for the object, access is 
-	granted (even if step 1 failed), move to step 3.
-	
-	3. If the user has been DENIED an ACL entry for the object, access is 
-	granted (even if step 1 or 2 passed)
-	
+  2. If the user has been GRANTED an ACL entry for the object, access is 
+  granted (even if step 1 failed), move to step 3.
+  
+  3. If the user has been DENIED an ACL entry for the object, access is 
+  granted (even if step 1 or 2 passed)
+  
 So in summary,
 
-	DENY > GRANT > Minimum Level.
-	
+  DENY > GRANT > Minimum Level.
+  
 
 
 
@@ -498,8 +498,8 @@ So in summary,
 
 
 
-	
-	
+  
+  
 Appendix Z - First ever post on Pyffle HQ
 =========================================
 
@@ -525,4 +525,4 @@ Sampsa
 
 
 
-	
+  
