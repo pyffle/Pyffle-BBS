@@ -95,31 +95,6 @@ class PyffleRnews:
 		return rv
 				
 		
-		
-		
-	## Clears the message base and writes two messages, dumps them to screen,
-	## deletes them
-	def parseIncomingAddress(self,toAddress):
-		username,hostname = toAddress.lower().split("@")
-		return username,hostname
-		
-	def incomingAddressIsLocal(self,toAddress):
-		aliases = [self.data.static.options["node"].strip().lower()]
-		for alias in self.data.static.options["alias"].split(","):
-			aliases.append(alias.strip().lower())
-		username,hostname = self.parseIncomingAddress(toAddress.strip().lower())
-		if hostname in aliases:
-			return True
-		else:
-			return False
-			
-	def debugMessageTest(self):
-		self.data.clearMessages()
-		msg1 = self.data.createMessage("fooble","sampsa","Test from py","Hello earth")
-		msg2 = self.data.createMessage("foo@bar.com","sampsa","Test to outside","Hello sky")
-		self.data.dumpMessages()
-		self.data.deleteMessage(msg1)
-		self.data.deleteMessage(msg2)
 
 	def go(self):	
 		## Initialise the main controller, load static file

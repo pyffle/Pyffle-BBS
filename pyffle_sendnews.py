@@ -40,15 +40,20 @@ import warnings
 
 class PyffleSendnews:
 
-	session = None
-	data = None
-	currentUser = None
+## USER CONFIGURE STARTS HERE
 	uucpboards = ["uuhec.hecnet"]
 	uucpfeeds = ["b4bbs"]
 	nntpfeeds = ["news.eternal-september.org"]
 	nntpboards = ["alt.test"]
+## USER CONFIGURE ENDS HERE
+
+	session = None
+	data = None
+	currentUser = None
 	VERSION = "Pyffle sendnews v0.01"
 	doNntp = False
+	
+	
 	def parseNews(self,s):
 		rv = {}
 		elements = s.split("\n")
@@ -91,22 +96,6 @@ class PyffleSendnews:
 				
 		
 		
-		
-	## Clears the message base and writes two messages, dumps them to screen,
-	## deletes them
-	def parseIncomingAddress(self,toAddress):
-		username,hostname = toAddress.lower().split("@")
-		return username,hostname
-		
-	def incomingAddressIsLocal(self,toAddress):
-		aliases = [self.data.static.options["node"].strip().lower()]
-		for alias in self.data.static.options["alias"].split(","):
-			aliases.append(alias.strip().lower())
-		username,hostname = self.parseIncomingAddress(toAddress.strip().lower())
-		if hostname in aliases:
-			return True
-		else:
-			return False
 	
 	def formatNntpDate(self, date):
 		## Fri, 19 Nov 82 16:14:55 GMT
@@ -164,18 +153,9 @@ class PyffleSendnews:
 				mailin = os.popen(cmdline,"w")
 				mailin.write(rv)
 				mailin.close()
-##				mailin.close()
 
 
 		
-
-	def debugMessageTest(self):
-		self.data.clearMessages()
-		msg1 = self.data.createMessage("fooble","sampsa","Test from py","Hello earth")
-		msg2 = self.data.createMessage("foo@bar.com","sampsa","Test to outside","Hello sky")
-		self.data.dumpMessages()
-		self.data.deleteMessage(msg1)
-		self.data.deleteMessage(msg2)
 
 	def go(self,nntp):	
 		self.doNntp = nntp
@@ -224,6 +204,19 @@ class PyffleSendnews:
 args = sys.argv
 
 nntp = False
+
+
+
+
+
+
+
+
+
+
+
+
+
 print len(args)
 if (len(args) == 2):
 	if args[1] == "nntp":
